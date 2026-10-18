@@ -88,7 +88,7 @@ def main():
         color = rng.integers(40, 256, size=3)
         overlay[mask] = 0.55 * overlay[mask] + 0.45 * color
 
-    overlay_path = output_dir / "overlay.png"
+    overlay_path = output_dir / "overlay2.png"
     Image.fromarray(
         np.clip(overlay, 0, 255).astype(np.uint8)
     ).save(overlay_path)
