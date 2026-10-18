@@ -1,0 +1,13 @@
+{
+  "dataset": "josauder/coralscapesV2",
+  "split": "train",
+  "sample_index": 0,
+  "image_size_wh": [
+    2048,
+    1024
+  ],
+  "sample_fields": [
+    "image",
+    "label"
+  ]
+}
