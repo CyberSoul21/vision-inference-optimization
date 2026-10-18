@@ -44,6 +44,9 @@ def main():
         report("2. Procesando imagen")
         state = processor.set_image(image)
 
+        # Libera bloques de caché que ya no están en uso.
+        torch.cuda.empty_cache()
+
         report("3. Aplicando prompt: fish")
         result = processor.set_text_prompt(
             state=state,
