@@ -1,0 +1,16 @@
+{
+  "image": "/export/d03/scratch/a962449/TFM/vision-inference-optimization/data/samples/coralscapes_train_0000.png",
+  "prompt": "fish",
+  "num_detections": 6,
+  "scores": [
+    0.7458876371383667,
+    0.9266768097877502,
+    0.9203742742538452,
+    0.6065279841423035,
+    0.8373593688011169,
+    0.9131462574005127
+  ],
+  "gpu": "NVIDIA A10",
+  "parameter_dtype": "torch.float32",
+  "vitdet_mlp_implementation": "unfused_fp32"
+}
