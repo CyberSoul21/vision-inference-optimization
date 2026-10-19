@@ -1,0 +1,52 @@
+[
+  {
+    "sample_id": "coralscapes_train_0000",
+    "prompt": "fish",
+    "num_detections": 6,
+    "scores": [
+      0.7458876371383667,
+      0.9266768097877502,
+      0.9203742742538452,
+      0.6065279841423035,
+      0.8373593688011169,
+      0.9131462574005127
+    ]
+  },
+  {
+    "sample_id": "coralscapes_train_0001",
+    "prompt": "fish",
+    "num_detections": 0,
+    "scores": []
+  },
+  {
+    "sample_id": "coralscapes_train_0002",
+    "prompt": "fish",
+    "num_detections": 5,
+    "scores": [
+      0.8429311513900757,
+      0.6437221169471741,
+      0.7907537817955017,
+      0.8872885704040527,
+      0.6234977841377258
+    ]
+  },
+  {
+    "sample_id": "coralscapes_train_0003",
+    "prompt": "fish",
+    "num_detections": 3,
+    "scores": [
+      0.7596348524093628,
+      0.9277763962745667,
+      0.9643200039863586
+    ]
+  },
+  {
+    "sample_id": "coralscapes_train_0004",
+    "prompt": "fish",
+    "num_detections": 2,
+    "scores": [
+      0.5280640721321106,
+      0.7103549242019653
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "prompt": "fish",
+  "gpu": "NVIDIA A10",
+  "torch_version": "2.8.0+cu126",
+  "cuda_version": "12.6",
+  "parameter_dtype": "torch.float32",
+  "vitdet_mlp_implementation": "unfused_fp32"
+}

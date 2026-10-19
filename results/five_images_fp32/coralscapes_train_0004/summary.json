@@ -1,0 +1,9 @@
+{
+  "sample_id": "coralscapes_train_0004",
+  "prompt": "fish",
+  "num_detections": 2,
+  "scores": [
+    0.5280640721321106,
+    0.7103549242019653
+  ]
+}
