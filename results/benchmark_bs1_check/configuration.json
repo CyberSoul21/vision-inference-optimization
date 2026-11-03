@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-11-03T11:20:58.921369+00:00",
+  "created_utc": "2026-11-03T11:30:08.766016+00:00",
   "hostname": "berlin.unizar.es",
   "python": "3.9.16",
   "torch": "2.8.0+cu126",
@@ -19,7 +19,7 @@
     "dirty": false
   },
   "benchmark_git": {
-    "commit": "b07480f63c815d54ea129b4348de7953ceb4a807",
+    "commit": "79efd5c2b80e76d51a45415571954aff843c5664",
     "dirty": true
   },
   "checkpoint": "builder_default; not independently identified",
@@ -27,8 +27,8 @@
   "batch_size": 1,
   "num_images": 5,
   "warmup_passes": 1,
-  "measured_passes": 2,
-  "model_and_processor_setup_seconds": 45.21948933717795,
+  "measured_passes": 10,
+  "model_and_processor_setup_seconds": 6.730586254969239,
   "measurement": "image_read_to_cpu_predictions",
   "output_policy": "consume_and_release_each_image"
 }
