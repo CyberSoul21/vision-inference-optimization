@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-11-03T11:20:58.921369+00:00",
+  "hostname": "berlin.unizar.es",
+  "python": "3.9.16",
+  "torch": "2.8.0+cu126",
+  "cuda_runtime": "12.6",
+  "gpu": "NVIDIA A10",
+  "gpu_total_gib": 22.0689697265625,
+  "cuda_visible_devices": "1",
+  "torch_cpu_threads": 16,
+  "parameter_dtype": "torch.float32",
+  "vitdet_mlp_implementation": "unfused_fp32",
+  "autocast": false,
+  "tf32_matmul": true,
+  "tf32_cudnn": true,
+  "cudnn_benchmark": false,
+  "sam3_git": {
+    "commit": "0570b3a5be9c4e694f23d85232fb55f4a6f1f7fc",
+    "dirty": false
+  },
+  "benchmark_git": {
+    "commit": "b07480f63c815d54ea129b4348de7953ceb4a807",
+    "dirty": true
+  },
+  "checkpoint": "builder_default; not independently identified",
+  "prompt": "fish",
+  "batch_size": 1,
+  "num_images": 5,
+  "warmup_passes": 1,
+  "measured_passes": 2,
+  "model_and_processor_setup_seconds": 45.21948933717795,
+  "measurement": "image_read_to_cpu_predictions",
+  "output_policy": "consume_and_release_each_image"
+}

@@ -1,0 +1,12 @@
+{
+  "num_images_per_pass": 5,
+  "measured_passes": 2,
+  "median_pass_seconds": 2.173796006012708,
+  "p95_pass_seconds": 2.174174298485741,
+  "min_pass_seconds": 2.173375681042671,
+  "max_pass_seconds": 2.1742163309827447,
+  "median_images_per_second": 2.30012391830249,
+  "overall_images_per_second": 2.300123832305344,
+  "max_peak_allocated_gib": 3.9199185371398926,
+  "max_peak_reserved_gib": 4.173828125
+}
