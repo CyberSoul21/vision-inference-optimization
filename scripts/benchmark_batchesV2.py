@@ -36,7 +36,7 @@ from sam3.train.transforms.basic_for_api import (
 # ---------------------------------------------------------------------------
 # Parametros fijos del experimento
 # ---------------------------------------------------------------------------
-BATCH_SIZES = [1, 4, 8, 16, 32]
+BATCH_SIZES = [1, 2, 4, 8, 16, 32]
 RESOLUTION = 1008   # Lado del cuadrado al que se redimensiona cada imagen
 THRESHOLD = 0.5     # Puntuacion minima para conservar una deteccion
 
