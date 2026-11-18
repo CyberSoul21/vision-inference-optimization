@@ -1,0 +1,3421 @@
+{
+  "dataset": "josauder/coralscapesV2",
+  "revision": "8a4567b2fbec14882e09aebff63a7a1ca5e24dca",
+  "split": "train",
+  "selection": "first_n_in_dataset_order",
+  "count": 128,
+  "samples": [
+    {
+      "sample_id": "coralscapes_train_0000",
+      "sample_index": 0,
+      "image": "coralscapes_train_0000.png",
+      "label": "coralscapes_train_0000_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        13,
+        14,
+        22,
+        25,
+        38,
+        42,
+        45,
+        62,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0001",
+      "sample_index": 1,
+      "image": "coralscapes_train_0001.png",
+      "label": "coralscapes_train_0001_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        1,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        62,
+        65,
+        67,
+        78,
+        85,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0002",
+      "sample_index": 2,
+      "image": "coralscapes_train_0002.png",
+      "label": "coralscapes_train_0002_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        1,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        38,
+        45,
+        65,
+        67,
+        68,
+        69,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0003",
+      "sample_index": 3,
+      "image": "coralscapes_train_0003.png",
+      "label": "coralscapes_train_0003_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        23,
+        25,
+        38,
+        45,
+        47,
+        65,
+        67,
+        68,
+        69,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0004",
+      "sample_index": 4,
+      "image": "coralscapes_train_0004.png",
+      "label": "coralscapes_train_0004_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        1,
+        11,
+        14,
+        20,
+        22,
+        25,
+        38,
+        45,
+        47,
+        65,
+        67,
+        68,
+        69,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0005",
+      "sample_index": 5,
+      "image": "coralscapes_train_0005.png",
+      "label": "coralscapes_train_0005_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        3,
+        4,
+        11,
+        14,
+        19,
+        20,
+        22,
+        25,
+        32,
+        38,
+        45,
+        47,
+        68,
+        69,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0006",
+      "sample_index": 6,
+      "image": "coralscapes_train_0006.png",
+      "label": "coralscapes_train_0006_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        17,
+        20,
+        22,
+        25,
+        38,
+        45,
+        62,
+        63,
+        64,
+        65,
+        69,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0007",
+      "sample_index": 7,
+      "image": "coralscapes_train_0007.png",
+      "label": "coralscapes_train_0007_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        18,
+        22,
+        25,
+        38,
+        42,
+        45,
+        62,
+        64,
+        65,
+        67,
+        68,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0008",
+      "sample_index": 8,
+      "image": "coralscapes_train_0008.png",
+      "label": "coralscapes_train_0008_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        8,
+        11,
+        14,
+        22,
+        25,
+        29,
+        38,
+        45,
+        62,
+        65
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0009",
+      "sample_index": 9,
+      "image": "coralscapes_train_0009.png",
+      "label": "coralscapes_train_0009_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        8,
+        11,
+        14,
+        18,
+        22,
+        23,
+        25,
+        29,
+        38,
+        42,
+        44,
+        45,
+        56,
+        65,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0010",
+      "sample_index": 10,
+      "image": "coralscapes_train_0010.png",
+      "label": "coralscapes_train_0010_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        29,
+        38,
+        42,
+        45,
+        65,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0011",
+      "sample_index": 11,
+      "image": "coralscapes_train_0011.png",
+      "label": "coralscapes_train_0011_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        18,
+        22,
+        23,
+        25,
+        29,
+        32,
+        38,
+        45,
+        62,
+        65,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0012",
+      "sample_index": 12,
+      "image": "coralscapes_train_0012.png",
+      "label": "coralscapes_train_0012_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        22,
+        23,
+        25,
+        29,
+        38,
+        42,
+        45,
+        62,
+        65,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0013",
+      "sample_index": 13,
+      "image": "coralscapes_train_0013.png",
+      "label": "coralscapes_train_0013_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        8,
+        11,
+        14,
+        22,
+        25,
+        42,
+        45,
+        62,
+        65,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0014",
+      "sample_index": 14,
+      "image": "coralscapes_train_0014.png",
+      "label": "coralscapes_train_0014_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        62,
+        65,
+        67,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0015",
+      "sample_index": 15,
+      "image": "coralscapes_train_0015.png",
+      "label": "coralscapes_train_0015_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        14,
+        25,
+        39,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0016",
+      "sample_index": 16,
+      "image": "coralscapes_train_0016.png",
+      "label": "coralscapes_train_0016_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        8,
+        11,
+        14,
+        20,
+        22,
+        23,
+        25,
+        32,
+        38,
+        45,
+        62,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0017",
+      "sample_index": 17,
+      "image": "coralscapes_train_0017.png",
+      "label": "coralscapes_train_0017_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        6,
+        8,
+        11,
+        14,
+        22,
+        23,
+        25,
+        32,
+        38,
+        62,
+        65,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0018",
+      "sample_index": 18,
+      "image": "coralscapes_train_0018.png",
+      "label": "coralscapes_train_0018_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        26,
+        29,
+        32,
+        38,
+        45,
+        47,
+        63,
+        64,
+        65,
+        68,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0019",
+      "sample_index": 19,
+      "image": "coralscapes_train_0019.png",
+      "label": "coralscapes_train_0019_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        38,
+        42,
+        45,
+        46,
+        62,
+        63,
+        64,
+        65,
+        68,
+        69,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0020",
+      "sample_index": 20,
+      "image": "coralscapes_train_0020.png",
+      "label": "coralscapes_train_0020_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        13,
+        14,
+        15,
+        18,
+        22,
+        23,
+        25,
+        38,
+        42,
+        45,
+        47,
+        48,
+        62,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0021",
+      "sample_index": 21,
+      "image": "coralscapes_train_0021.png",
+      "label": "coralscapes_train_0021_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        13,
+        14,
+        15,
+        18,
+        22,
+        23,
+        25,
+        35,
+        38,
+        42,
+        45,
+        47,
+        76
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0022",
+      "sample_index": 22,
+      "image": "coralscapes_train_0022.png",
+      "label": "coralscapes_train_0022_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        18,
+        20,
+        22,
+        25,
+        32,
+        35,
+        38,
+        42,
+        45,
+        47,
+        48,
+        62,
+        65,
+        68,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0023",
+      "sample_index": 23,
+      "image": "coralscapes_train_0023.png",
+      "label": "coralscapes_train_0023_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        15,
+        22,
+        25,
+        33,
+        38,
+        42,
+        45,
+        62,
+        65,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0024",
+      "sample_index": 24,
+      "image": "coralscapes_train_0024.png",
+      "label": "coralscapes_train_0024_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        56,
+        62,
+        65,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0025",
+      "sample_index": 25,
+      "image": "coralscapes_train_0025.png",
+      "label": "coralscapes_train_0025_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        29,
+        32,
+        38,
+        45,
+        62,
+        65,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0026",
+      "sample_index": 26,
+      "image": "coralscapes_train_0026.png",
+      "label": "coralscapes_train_0026_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        62,
+        65,
+        67,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0027",
+      "sample_index": 27,
+      "image": "coralscapes_train_0027.png",
+      "label": "coralscapes_train_0027_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        19,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        47,
+        48,
+        62,
+        64,
+        65,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0028",
+      "sample_index": 28,
+      "image": "coralscapes_train_0028.png",
+      "label": "coralscapes_train_0028_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        29,
+        38,
+        45,
+        62,
+        65,
+        85,
+        87,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0029",
+      "sample_index": 29,
+      "image": "coralscapes_train_0029.png",
+      "label": "coralscapes_train_0029_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        39,
+        93,
+        94
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0030",
+      "sample_index": 30,
+      "image": "coralscapes_train_0030.png",
+      "label": "coralscapes_train_0030_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        47,
+        62,
+        65,
+        68,
+        69,
+        79,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0031",
+      "sample_index": 31,
+      "image": "coralscapes_train_0031.png",
+      "label": "coralscapes_train_0031_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        42,
+        45,
+        65,
+        78,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0032",
+      "sample_index": 32,
+      "image": "coralscapes_train_0032.png",
+      "label": "coralscapes_train_0032_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        48,
+        65,
+        78,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0033",
+      "sample_index": 33,
+      "image": "coralscapes_train_0033.png",
+      "label": "coralscapes_train_0033_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        38,
+        45,
+        62,
+        65,
+        68,
+        69,
+        82,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0034",
+      "sample_index": 34,
+      "image": "coralscapes_train_0034.png",
+      "label": "coralscapes_train_0034_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        42,
+        45,
+        62,
+        65,
+        69,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0035",
+      "sample_index": 35,
+      "image": "coralscapes_train_0035.png",
+      "label": "coralscapes_train_0035_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        20,
+        22,
+        25,
+        35,
+        38,
+        45,
+        62,
+        63,
+        64,
+        65,
+        68,
+        69
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0036",
+      "sample_index": 36,
+      "image": "coralscapes_train_0036.png",
+      "label": "coralscapes_train_0036_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0037",
+      "sample_index": 37,
+      "image": "coralscapes_train_0037.png",
+      "label": "coralscapes_train_0037_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        9,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        29,
+        31,
+        35,
+        38,
+        42,
+        45,
+        62,
+        64,
+        65,
+        67,
+        68,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0038",
+      "sample_index": 38,
+      "image": "coralscapes_train_0038.png",
+      "label": "coralscapes_train_0038_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        62,
+        65,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0039",
+      "sample_index": 39,
+      "image": "coralscapes_train_0039.png",
+      "label": "coralscapes_train_0039_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        21,
+        22,
+        25,
+        35,
+        38,
+        65,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0040",
+      "sample_index": 40,
+      "image": "coralscapes_train_0040.png",
+      "label": "coralscapes_train_0040_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        29,
+        31,
+        35,
+        38,
+        42,
+        45,
+        47,
+        62,
+        64,
+        65,
+        76,
+        78,
+        85,
+        87
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0041",
+      "sample_index": 41,
+      "image": "coralscapes_train_0041.png",
+      "label": "coralscapes_train_0041_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        9,
+        10,
+        11,
+        14,
+        20,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        47,
+        62,
+        65,
+        67
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0042",
+      "sample_index": 42,
+      "image": "coralscapes_train_0042.png",
+      "label": "coralscapes_train_0042_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        9,
+        11,
+        14,
+        15,
+        22,
+        25,
+        29,
+        35,
+        38,
+        45,
+        62,
+        64,
+        65,
+        69
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0043",
+      "sample_index": 43,
+      "image": "coralscapes_train_0043.png",
+      "label": "coralscapes_train_0043_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        15,
+        22,
+        25,
+        38,
+        45,
+        62,
+        65,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0044",
+      "sample_index": 44,
+      "image": "coralscapes_train_0044.png",
+      "label": "coralscapes_train_0044_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        29,
+        32,
+        35,
+        38,
+        45,
+        62,
+        65,
+        67,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0045",
+      "sample_index": 45,
+      "image": "coralscapes_train_0045.png",
+      "label": "coralscapes_train_0045_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        17,
+        18,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        62,
+        63,
+        64,
+        65,
+        67,
+        68,
+        69
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0046",
+      "sample_index": 46,
+      "image": "coralscapes_train_0046.png",
+      "label": "coralscapes_train_0046_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        65,
+        85,
+        86,
+        87
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0047",
+      "sample_index": 47,
+      "image": "coralscapes_train_0047.png",
+      "label": "coralscapes_train_0047_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        39,
+        93,
+        94
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0048",
+      "sample_index": 48,
+      "image": "coralscapes_train_0048.png",
+      "label": "coralscapes_train_0048_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        47,
+        48,
+        62,
+        65,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0049",
+      "sample_index": 49,
+      "image": "coralscapes_train_0049.png",
+      "label": "coralscapes_train_0049_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        18,
+        22,
+        25,
+        26,
+        32,
+        38,
+        42,
+        45,
+        47,
+        62,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0050",
+      "sample_index": 50,
+      "image": "coralscapes_train_0050.png",
+      "label": "coralscapes_train_0050_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        48,
+        62,
+        64,
+        68,
+        69,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0051",
+      "sample_index": 51,
+      "image": "coralscapes_train_0051.png",
+      "label": "coralscapes_train_0051_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        8,
+        9,
+        11,
+        14,
+        22,
+        29,
+        35,
+        38,
+        45,
+        57,
+        62,
+        65,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0052",
+      "sample_index": 52,
+      "image": "coralscapes_train_0052.png",
+      "label": "coralscapes_train_0052_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        38,
+        42,
+        45,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0053",
+      "sample_index": 53,
+      "image": "coralscapes_train_0053.png",
+      "label": "coralscapes_train_0053_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        13,
+        14,
+        15,
+        18,
+        22,
+        23,
+        25,
+        38,
+        42,
+        45,
+        47,
+        48,
+        65,
+        76
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0054",
+      "sample_index": 54,
+      "image": "coralscapes_train_0054.png",
+      "label": "coralscapes_train_0054_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        9,
+        11,
+        14,
+        22,
+        25,
+        32,
+        35,
+        38,
+        42,
+        45,
+        62,
+        64,
+        65,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0055",
+      "sample_index": 55,
+      "image": "coralscapes_train_0055.png",
+      "label": "coralscapes_train_0055_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        6,
+        11,
+        14,
+        22,
+        23,
+        25,
+        29,
+        35,
+        38,
+        42,
+        45,
+        47,
+        62,
+        65,
+        68,
+        69,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0056",
+      "sample_index": 56,
+      "image": "coralscapes_train_0056.png",
+      "label": "coralscapes_train_0056_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        22,
+        23,
+        25,
+        35,
+        38,
+        45,
+        65,
+        67,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0057",
+      "sample_index": 57,
+      "image": "coralscapes_train_0057.png",
+      "label": "coralscapes_train_0057_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        26,
+        32,
+        38,
+        42,
+        45,
+        64,
+        65,
+        67,
+        68,
+        69,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0058",
+      "sample_index": 58,
+      "image": "coralscapes_train_0058.png",
+      "label": "coralscapes_train_0058_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        20,
+        22,
+        25,
+        31,
+        32,
+        38,
+        45,
+        47,
+        64,
+        65,
+        68,
+        69,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0059",
+      "sample_index": 59,
+      "image": "coralscapes_train_0059.png",
+      "label": "coralscapes_train_0059_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        20,
+        22,
+        25,
+        38,
+        45,
+        65,
+        67,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0060",
+      "sample_index": 60,
+      "image": "coralscapes_train_0060.png",
+      "label": "coralscapes_train_0060_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        38,
+        45,
+        65,
+        67,
+        68,
+        69,
+        78,
+        85,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0061",
+      "sample_index": 61,
+      "image": "coralscapes_train_0061.png",
+      "label": "coralscapes_train_0061_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        26,
+        32,
+        38,
+        42,
+        45,
+        47,
+        65,
+        67,
+        68,
+        69,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0062",
+      "sample_index": 62,
+      "image": "coralscapes_train_0062.png",
+      "label": "coralscapes_train_0062_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        20,
+        22,
+        25,
+        32,
+        38,
+        65,
+        67,
+        68,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0063",
+      "sample_index": 63,
+      "image": "coralscapes_train_0063.png",
+      "label": "coralscapes_train_0063_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        22,
+        25,
+        32,
+        38,
+        45,
+        47
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0064",
+      "sample_index": 64,
+      "image": "coralscapes_train_0064.png",
+      "label": "coralscapes_train_0064_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        1,
+        9,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        65,
+        67,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0065",
+      "sample_index": 65,
+      "image": "coralscapes_train_0065.png",
+      "label": "coralscapes_train_0065_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        65,
+        69,
+        78,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0066",
+      "sample_index": 66,
+      "image": "coralscapes_train_0066.png",
+      "label": "coralscapes_train_0066_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        47,
+        65,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0067",
+      "sample_index": 67,
+      "image": "coralscapes_train_0067.png",
+      "label": "coralscapes_train_0067_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        37,
+        38,
+        45,
+        65,
+        88,
+        90
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0068",
+      "sample_index": 68,
+      "image": "coralscapes_train_0068.png",
+      "label": "coralscapes_train_0068_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        88,
+        89,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0069",
+      "sample_index": 69,
+      "image": "coralscapes_train_0069.png",
+      "label": "coralscapes_train_0069_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        65,
+        67,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0070",
+      "sample_index": 70,
+      "image": "coralscapes_train_0070.png",
+      "label": "coralscapes_train_0070_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        35,
+        38,
+        65,
+        69,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0071",
+      "sample_index": 71,
+      "image": "coralscapes_train_0071.png",
+      "label": "coralscapes_train_0071_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        37,
+        38,
+        45,
+        65,
+        67,
+        68,
+        69,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0072",
+      "sample_index": 72,
+      "image": "coralscapes_train_0072.png",
+      "label": "coralscapes_train_0072_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        37,
+        38,
+        45,
+        47,
+        62,
+        64,
+        65,
+        67,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0073",
+      "sample_index": 73,
+      "image": "coralscapes_train_0073.png",
+      "label": "coralscapes_train_0073_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        69,
+        78,
+        85,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0074",
+      "sample_index": 74,
+      "image": "coralscapes_train_0074.png",
+      "label": "coralscapes_train_0074_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        24,
+        25,
+        38,
+        46,
+        65,
+        67,
+        78,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0075",
+      "sample_index": 75,
+      "image": "coralscapes_train_0075.png",
+      "label": "coralscapes_train_0075_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        38,
+        45,
+        65,
+        67,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0076",
+      "sample_index": 76,
+      "image": "coralscapes_train_0076.png",
+      "label": "coralscapes_train_0076_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        65,
+        67,
+        68,
+        69,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0077",
+      "sample_index": 77,
+      "image": "coralscapes_train_0077.png",
+      "label": "coralscapes_train_0077_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        65,
+        67,
+        88,
+        89,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0078",
+      "sample_index": 78,
+      "image": "coralscapes_train_0078.png",
+      "label": "coralscapes_train_0078_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        65,
+        78,
+        85,
+        88,
+        89,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0079",
+      "sample_index": 79,
+      "image": "coralscapes_train_0079.png",
+      "label": "coralscapes_train_0079_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        38,
+        65,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0080",
+      "sample_index": 80,
+      "image": "coralscapes_train_0080.png",
+      "label": "coralscapes_train_0080_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        39,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0081",
+      "sample_index": 81,
+      "image": "coralscapes_train_0081.png",
+      "label": "coralscapes_train_0081_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        20,
+        22,
+        25,
+        35,
+        38,
+        45,
+        78,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0082",
+      "sample_index": 82,
+      "image": "coralscapes_train_0082.png",
+      "label": "coralscapes_train_0082_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        62,
+        65,
+        68,
+        69,
+        85,
+        88
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0083",
+      "sample_index": 83,
+      "image": "coralscapes_train_0083.png",
+      "label": "coralscapes_train_0083_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        67,
+        78,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0084",
+      "sample_index": 84,
+      "image": "coralscapes_train_0084.png",
+      "label": "coralscapes_train_0084_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        38,
+        45,
+        65,
+        67,
+        69,
+        85,
+        87,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0085",
+      "sample_index": 85,
+      "image": "coralscapes_train_0085.png",
+      "label": "coralscapes_train_0085_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        20,
+        22,
+        25,
+        35,
+        38,
+        42,
+        45,
+        47,
+        78,
+        82,
+        85,
+        87,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0086",
+      "sample_index": 86,
+      "image": "coralscapes_train_0086.png",
+      "label": "coralscapes_train_0086_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        65,
+        68,
+        69,
+        78,
+        82,
+        85,
+        87
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0087",
+      "sample_index": 87,
+      "image": "coralscapes_train_0087.png",
+      "label": "coralscapes_train_0087_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        20,
+        22,
+        25,
+        26,
+        35,
+        38,
+        42,
+        45,
+        48,
+        62,
+        63,
+        64,
+        65,
+        68,
+        69,
+        82,
+        85,
+        87,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0088",
+      "sample_index": 88,
+      "image": "coralscapes_train_0088.png",
+      "label": "coralscapes_train_0088_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        65,
+        67,
+        82,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0089",
+      "sample_index": 89,
+      "image": "coralscapes_train_0089.png",
+      "label": "coralscapes_train_0089_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        38,
+        42,
+        45,
+        47,
+        85,
+        87
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0090",
+      "sample_index": 90,
+      "image": "coralscapes_train_0090.png",
+      "label": "coralscapes_train_0090_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        15,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        82,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0091",
+      "sample_index": 91,
+      "image": "coralscapes_train_0091.png",
+      "label": "coralscapes_train_0091_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        65,
+        67,
+        70,
+        82,
+        84,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0092",
+      "sample_index": 92,
+      "image": "coralscapes_train_0092.png",
+      "label": "coralscapes_train_0092_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        65,
+        67,
+        82,
+        84,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0093",
+      "sample_index": 93,
+      "image": "coralscapes_train_0093.png",
+      "label": "coralscapes_train_0093_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        39,
+        65,
+        67,
+        70,
+        78,
+        82,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0094",
+      "sample_index": 94,
+      "image": "coralscapes_train_0094.png",
+      "label": "coralscapes_train_0094_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        19,
+        22,
+        25,
+        35,
+        38,
+        65,
+        69,
+        82,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0095",
+      "sample_index": 95,
+      "image": "coralscapes_train_0095.png",
+      "label": "coralscapes_train_0095_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        12,
+        14,
+        18,
+        20,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        82,
+        83,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0096",
+      "sample_index": 96,
+      "image": "coralscapes_train_0096.png",
+      "label": "coralscapes_train_0096_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        55,
+        65,
+        70,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0097",
+      "sample_index": 97,
+      "image": "coralscapes_train_0097.png",
+      "label": "coralscapes_train_0097_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0098",
+      "sample_index": 98,
+      "image": "coralscapes_train_0098.png",
+      "label": "coralscapes_train_0098_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        11,
+        14,
+        18,
+        20,
+        22,
+        25,
+        35,
+        38,
+        45,
+        47,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0099",
+      "sample_index": 99,
+      "image": "coralscapes_train_0099.png",
+      "label": "coralscapes_train_0099_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        35,
+        38,
+        45,
+        47,
+        65,
+        67,
+        68,
+        78,
+        79,
+        82,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0100",
+      "sample_index": 100,
+      "image": "coralscapes_train_0100.png",
+      "label": "coralscapes_train_0100_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        32,
+        35,
+        38,
+        45,
+        69,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0101",
+      "sample_index": 101,
+      "image": "coralscapes_train_0101.png",
+      "label": "coralscapes_train_0101_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        35,
+        38,
+        45,
+        47,
+        65,
+        68,
+        69
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0102",
+      "sample_index": 102,
+      "image": "coralscapes_train_0102.png",
+      "label": "coralscapes_train_0102_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        2,
+        8,
+        11,
+        14,
+        18,
+        22,
+        25,
+        32,
+        35,
+        38,
+        45,
+        47,
+        65,
+        67,
+        69
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0103",
+      "sample_index": 103,
+      "image": "coralscapes_train_0103.png",
+      "label": "coralscapes_train_0103_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        35,
+        38,
+        45,
+        65,
+        68,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0104",
+      "sample_index": 104,
+      "image": "coralscapes_train_0104.png",
+      "label": "coralscapes_train_0104_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        38,
+        45,
+        47,
+        85,
+        87
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0105",
+      "sample_index": 105,
+      "image": "coralscapes_train_0105.png",
+      "label": "coralscapes_train_0105_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        1,
+        11,
+        14,
+        22,
+        23,
+        25,
+        35,
+        36,
+        37,
+        38,
+        45,
+        65,
+        68,
+        69,
+        78
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0106",
+      "sample_index": 106,
+      "image": "coralscapes_train_0106.png",
+      "label": "coralscapes_train_0106_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        46,
+        47,
+        65,
+        67,
+        68,
+        69,
+        78,
+        84,
+        85,
+        86,
+        87,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0107",
+      "sample_index": 107,
+      "image": "coralscapes_train_0107.png",
+      "label": "coralscapes_train_0107_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        32,
+        38,
+        45,
+        47,
+        55,
+        65,
+        68,
+        69,
+        70,
+        78,
+        79,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0108",
+      "sample_index": 108,
+      "image": "coralscapes_train_0108.png",
+      "label": "coralscapes_train_0108_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        47,
+        55,
+        68,
+        69,
+        79,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0109",
+      "sample_index": 109,
+      "image": "coralscapes_train_0109.png",
+      "label": "coralscapes_train_0109_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        12,
+        14,
+        22,
+        25,
+        70,
+        82,
+        83,
+        84
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0110",
+      "sample_index": 110,
+      "image": "coralscapes_train_0110.png",
+      "label": "coralscapes_train_0110_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        12,
+        14,
+        22,
+        25,
+        35,
+        38,
+        65,
+        69,
+        82,
+        83,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0111",
+      "sample_index": 111,
+      "image": "coralscapes_train_0111.png",
+      "label": "coralscapes_train_0111_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        67,
+        69,
+        85,
+        88,
+        89
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0112",
+      "sample_index": 112,
+      "image": "coralscapes_train_0112.png",
+      "label": "coralscapes_train_0112_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        15,
+        22,
+        25,
+        38,
+        42,
+        45,
+        48,
+        65,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0113",
+      "sample_index": 113,
+      "image": "coralscapes_train_0113.png",
+      "label": "coralscapes_train_0113_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0114",
+      "sample_index": 114,
+      "image": "coralscapes_train_0114.png",
+      "label": "coralscapes_train_0114_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        12,
+        14,
+        22,
+        25,
+        38,
+        45,
+        68,
+        69,
+        82,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0115",
+      "sample_index": 115,
+      "image": "coralscapes_train_0115.png",
+      "label": "coralscapes_train_0115_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        38,
+        45,
+        65,
+        88,
+        89,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0116",
+      "sample_index": 116,
+      "image": "coralscapes_train_0116.png",
+      "label": "coralscapes_train_0116_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        38,
+        39,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0117",
+      "sample_index": 117,
+      "image": "coralscapes_train_0117.png",
+      "label": "coralscapes_train_0117_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        22,
+        25,
+        38,
+        55,
+        65,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0118",
+      "sample_index": 118,
+      "image": "coralscapes_train_0118.png",
+      "label": "coralscapes_train_0118_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        51,
+        65,
+        82,
+        84,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0119",
+      "sample_index": 119,
+      "image": "coralscapes_train_0119.png",
+      "label": "coralscapes_train_0119_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        48,
+        55,
+        69,
+        85
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0120",
+      "sample_index": 120,
+      "image": "coralscapes_train_0120.png",
+      "label": "coralscapes_train_0120_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        12,
+        14,
+        20,
+        22,
+        25,
+        37,
+        38,
+        45,
+        65,
+        84,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0121",
+      "sample_index": 121,
+      "image": "coralscapes_train_0121.png",
+      "label": "coralscapes_train_0121_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        14,
+        22,
+        25,
+        38,
+        45,
+        65,
+        93,
+        94
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0122",
+      "sample_index": 122,
+      "image": "coralscapes_train_0122.png",
+      "label": "coralscapes_train_0122_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        48,
+        55,
+        62,
+        68,
+        69,
+        79,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0123",
+      "sample_index": 123,
+      "image": "coralscapes_train_0123.png",
+      "label": "coralscapes_train_0123_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        18,
+        22,
+        25,
+        35,
+        38,
+        45,
+        48,
+        65,
+        85,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0124",
+      "sample_index": 124,
+      "image": "coralscapes_train_0124.png",
+      "label": "coralscapes_train_0124_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        65,
+        78,
+        85,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0125",
+      "sample_index": 125,
+      "image": "coralscapes_train_0125.png",
+      "label": "coralscapes_train_0125_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        37,
+        38,
+        45,
+        47,
+        65,
+        68,
+        69,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0126",
+      "sample_index": 126,
+      "image": "coralscapes_train_0126.png",
+      "label": "coralscapes_train_0126_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        38,
+        45,
+        65,
+        88,
+        93
+      ]
+    },
+    {
+      "sample_id": "coralscapes_train_0127",
+      "sample_index": 127,
+      "image": "coralscapes_train_0127.png",
+      "label": "coralscapes_train_0127_label.npy",
+      "image_size_wh": [
+        2048,
+        1024
+      ],
+      "label_dtype": "uint8",
+      "label_values": [
+        0,
+        11,
+        14,
+        22,
+        25,
+        35,
+        38,
+        45,
+        63,
+        64,
+        65,
+        67,
+        85,
+        93
+      ]
+    }
+  ]
+}
