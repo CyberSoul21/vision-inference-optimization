@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-11-18T12:21:54.710635+00:00",
+  "hostname": "berlin.unizar.es",
+  "python": "3.9.16",
+  "torch": "2.8.0+cu126",
+  "cuda_runtime": "12.6",
+  "gpu": "NVIDIA A10",
+  "gpu_uuid": "GPU-6557274d-fe1e-62a1-2378-8b7e95ea6d0b",
+  "cuda_visible_devices": "1",
+  "driver": "570.86.15",
+  "torch_cpu_threads": 16,
+  "batch_size": 2,
+  "num_images": 128,
+  "warmup_passes": 1,
+  "measured_passes": 30,
+  "prompt": "fish",
+  "resolution": [
+    1008,
+    1008
+  ],
+  "threshold": 0.5,
+  "autocast_dtype": "bfloat16",
+  "tf32_allowed": true,
+  "mlp": "original_unmodified",
+  "sam3_git": {
+    "commit": "0570b3a5be9c4e694f23d85232fb55f4a6f1f7fc",
+    "status": "",
+    "diff": ""
+  },
+  "benchmark_git": {
+    "commit": "c928a453d510d9911468e9c093424d6b736b879a",
+    "status": "?? results/batches_bs2_measured/",
+    "diff": ""
+  },
+  "script_sha256": "385adc424b72db5e52b10bfa3550e26858fad89a8698c06ee8e55133254922ab",
+  "checkpoint": "builder_default_unresolved",
+  "checkpoint_sha256": null,
+  "measurement": "local_file_read_to_cpu_predictions",
+  "execution": "serial_batches_no_explicit_prefetch_or_overlap",
+  "energy_scope": "whole_GPU_gross_energy_including_idle_during_CPU_work",
+  "disk_cache": "not_flushed; warmup_reads_same_files",
+  "setup_seconds": 6.68355821701698,
+  "parameter_dtype": "torch.float32"
+}
