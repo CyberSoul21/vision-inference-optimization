@@ -158,20 +158,94 @@ def build_configuration(args, samples, gpu_uuid):
 
 
 # ---------------------------------------------------------------------------
+# Modelo y preparacion de datos
+# ---------------------------------------------------------------------------
+def load_model(checkpoint):
+    """Construye SAM 3 original en modo evaluacion y mide cuanto tarda la carga."""
+    torch.cuda.synchronize()
+    t = time.perf_counter()
+    kwargs = {"checkpoint_path": str(checkpoint)} if checkpoint else {}
+    model = build_sam3_image_model(**kwargs).eval()
+    torch.cuda.synchronize()
+    return model, time.perf_counter() - t
+
+
+def build_pipeline():
+    """Preprocesado y postprocesado del notebook oficial de SAM 3."""
+    transform = ComposeAPI(transforms=[
+        # Redimensiona a un cuadrado RESOLUTION x RESOLUTION (sin mantener proporcion).
+        RandomResizeAPI(sizes=RESOLUTION, max_size=RESOLUTION, square=True,
+                        consistent_transform=False),
+        ToTensorAPI(),
+        # Lleva los pixeles de [0, 1] a [-1, 1].
+        NormalizeAPI(mean=[0.5] * 3, std=[0.5] * 3),
+    ])
+    postprocessor = PostProcessImage(
+        max_dets_per_img=-1,             # Sin limite de detecciones por imagen
+        iou_type="segm",                 # Devolver mascaras, no solo cajas
+        use_original_sizes_box=True,     # Cajas en coordenadas de la imagen original
+        use_original_sizes_mask=True,    # Mascaras reescaladas al tamano original (en GPU)
+        convert_mask_to_rle=False,       # Mascaras como tensores, sin comprimir
+        detection_threshold=THRESHOLD,
+        to_cpu=False,                    # La copia a CPU se hace despues, dentro del tiempo medido
+    )
+    return transform, postprocessor
+
+
+def make_datapoint(image_path, query_id, prompt, transform):
+    """Convierte una imagen + un prompt de texto en la entrada que espera SAM 3.
+
+    Un Datapoint contiene imagenes y "consultas" (find queries). Aqui hay una sola
+    imagen y una sola consulta: "encuentra todos los <prompt>".
+    query_id identifica la consulta; el postprocesador devuelve los resultados
+    en un diccionario indexado por ese id.
+    """
+    with Image.open(image_path) as src:
+        image = src.convert("RGB")
+    width, height = image.size
+    point = Datapoint(find_queries=[], images=[
+        SAMImage(data=image, objects=[], size=[height, width])
+    ])
+    point.find_queries.append(FindQueryLoaded(
+        query_text=prompt, image_id=0, object_ids_output=[],
+        is_exhaustive=True, query_processing_order=0,
+        inference_metadata=InferenceMetadata(
+            coco_image_id=query_id, original_image_id=query_id,
+            original_category_id=1, original_size=[height, width],
+            object_id=0, frame_index=0,
+        ),
+    ))
+    return transform(point)
+
+
+# ---------------------------------------------------------------------------
 # Programa principal
 # ---------------------------------------------------------------------------
 def main():
+    # Marcas usadas en los comentarios para localizar las mediciones:
+    #   [MEDICION TIEMPO]   cronometro (time.perf_counter)
+    #   [MEDICION ENERGIA]  contador de energia acumulada de la GPU (NVML, en mJ)
+    #   [MEDICION VRAM]     pico de memoria GPU reservada/asignada por PyTorch
+    #   >>> / <<<           inicio / fin de una ventana de medicion
     args = arguments()
 
+    # ======================================================================
+    # ETAPA 1. Validar entradas y preparar la carpeta de salida
+    # Todo lo que pueda fallar se comprueba ANTES de cargar el modelo (~35 s).
+    # ======================================================================
     if not torch.cuda.is_available() or torch.cuda.device_count() != 1:
         raise RuntimeError("Se requiere exactamente una GPU CUDA visible")
     manifest_path, manifest = load_manifest(args.manifest, args.batch_size)
     samples = manifest["samples"]
     if args.checkpoint and not args.checkpoint.is_file():
         raise FileNotFoundError(args.checkpoint)
+    # exist_ok=False: nunca se sobrescriben resultados de una ejecucion anterior.
     args.output.mkdir(parents=True, exist_ok=False)
     save_json(args.output / "manifest.json", manifest)
 
+    # ======================================================================
+    # ETAPA 2. Identificar la GPU y abrir NVML (la libreria que lee energia)
+    # ======================================================================
     # CUDA renumera la GPU seleccionada como cuda:0. Su UUID real permite
     # encontrar el dispositivo NVML correcto sin interpretar indices fisicos.
     gpu_uuid = str(torch.cuda.get_device_properties(0).uuid)
@@ -183,64 +257,68 @@ def main():
         try:
             handle = nvml.nvmlDeviceGetHandleByUUID(gpu_uuid)
         except TypeError:
+            # Algunas versiones de pynvml exigen el UUID en bytes.
             handle = nvml.nvmlDeviceGetHandleByUUID(gpu_uuid.encode())
         check_exclusive(handle)
         nvml.nvmlDeviceGetTotalEnergyConsumption(handle)  # Fallar si no esta soportado.
 
+        # ==================================================================
+        # ETAPA 3. Fijar opciones numericas y guardar la configuracion
+        # ==================================================================
+        # TF32: las multiplicaciones FP32 que queden fuera de autocast usan
+        # los Tensor Cores con precision reducida (mas rapido).
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
         torch.manual_seed(42)
         config = build_configuration(args, samples, gpu_uuid)
         save_json(args.output / "configuration.json", config)
 
+        # ==================================================================
+        # ETAPA 4. Cargar el modelo y el pre/postprocesado
+        # [MEDICION TIEMPO] de la carga (setup_seconds). NO forma parte de las
+        # metricas de inferencia: se paga una sola vez por proceso.
+        # ==================================================================
         print("Cargando modelo original...", flush=True)
-        torch.cuda.synchronize()
-        t = time.perf_counter()
-        kwargs = {"checkpoint_path": str(args.checkpoint)} if args.checkpoint else {}
-        model = build_sam3_image_model(**kwargs).eval()
-        torch.cuda.synchronize()
-        config["setup_seconds"] = time.perf_counter() - t
+        model, config["setup_seconds"] = load_model(args.checkpoint)
         config["parameter_dtype"] = str(next(model.parameters()).dtype)
         save_json(args.output / "configuration.json", config)
 
-        transform = ComposeAPI(transforms=[
-            RandomResizeAPI(sizes=RESOLUTION, max_size=RESOLUTION, square=True, consistent_transform=False),
-            ToTensorAPI(),
-            NormalizeAPI(mean=[0.5] * 3, std=[0.5] * 3),
-        ])
-        postprocessor = PostProcessImage(
-            max_dets_per_img=-1, iou_type="segm",
-            use_original_sizes_box=True, use_original_sizes_mask=True,
-            convert_mask_to_rle=False, detection_threshold=THRESHOLD, to_cpu=False,
-        )
+        transform, postprocessor = build_pipeline()
 
+        # ==================================================================
+        # ETAPA 5. Definir como se procesa un batch y una pasada completa
+        # (aqui solo se definen las funciones; se ejecutan en las etapas 6 y 7)
+        # ==================================================================
         def one_batch(start, save=False):
-            """Todas las etapas estan incluidas; variables GPU mueren al retornar."""
-            points = []
+            """Procesa un batch de imagenes de principio a fin y devuelve cuantas detecciones hay en cada una.
+
+            Todas las etapas estan incluidas; variables GPU mueren al retornar.
+            """
             group = samples[start:start + args.batch_size]
-            for offset, sample in enumerate(group):
-                with Image.open(manifest_path.parent / sample["image"]) as src:
-                    image = src.convert("RGB")
-                width, height = image.size
-                query_id = start + offset + 1
-                point = Datapoint(find_queries=[], images=[
-                    SAMImage(data=image, objects=[], size=[height, width])
-                ])
-                point.find_queries.append(FindQueryLoaded(
-                    query_text=args.prompt, image_id=0, object_ids_output=[],
-                    is_exhaustive=True, query_processing_order=0,
-                    inference_metadata=InferenceMetadata(
-                        coco_image_id=query_id, original_image_id=query_id,
-                        original_category_id=1, original_size=[height, width],
-                        object_id=0, frame_index=0,
-                    ),
-                ))
-                points.append(transform(point))
+
+            # 5.1 [CPU] Leer de disco, decodificar y redimensionar cada imagen.
+            # query_id = posicion global + 1: con el se recuperan los resultados de cada imagen.
+            points = [make_datapoint(manifest_path.parent / sample["image"],
+                                     start + offset + 1, args.prompt, transform)
+                      for offset, sample in enumerate(group)]
+
+            # 5.2 [CPU] Juntar las imagenes en un unico tensor de batch.
             # Collate crea un batch real, no un bucle de forwards individuales.
             batch = collate_fn_api(points, dict_key="input")["input"]
+
+            # 5.3 [CPU -> GPU] Copiar el batch a la memoria de la GPU.
             batch = copy_data_to_device(batch, torch.device("cuda"), non_blocking=True)
+
+            # 5.4 [GPU] Inferencia del modelo (un solo forward para todo el batch).
+            # Es asincrona: Python solo encola los kernels y sigue sin esperar.
             output = model(batch)
+
+            # 5.5 [GPU] Postprocesado: filtrar por THRESHOLD y reescalar cajas
+            # y mascaras al tamano original de cada imagen.
             results = postprocessor.process_results(output, batch.find_metadatas)
+
+            # 5.6 [GPU -> CPU] Copiar las predicciones de cada imagen a CPU.
+            # .cpu() obliga a esperar a que la GPU termine todo lo anterior.
             counts = []
             for offset, sample in enumerate(group):
                 item = results[start + offset + 1]
@@ -256,43 +334,79 @@ def main():
             return counts
 
         def run_pass(save=False):
+            """Procesa TODAS las imagenes del manifest, batch a batch.
+
+            Devuelve las detecciones por imagen y la latencia de cada batch.
+            """
             counts = []
             batch_times = []
             for start in range(0, len(samples), args.batch_size):
                 # Baseline serial: cada batch termina en CPU antes del siguiente.
+                # [MEDICION TIEMPO] >>> inicio de la latencia de UN batch
                 begin = time.perf_counter()
                 counts.extend(one_batch(start, save=save))
-                torch.cuda.synchronize()
+                torch.cuda.synchronize()  # Asegura que la GPU ha terminado antes de parar el reloj.
                 batch_times.append(time.perf_counter() - begin)
+                # [MEDICION TIEMPO] <<< fin de la latencia de UN batch
             return counts, batch_times
 
         rows = []
         latency_rows = []
+        # inference_mode: sin calculo de gradientes. autocast BF16: la mayoria
+        # de operaciones se ejecutan en bfloat16 (como en el notebook oficial).
         with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+
+            # ==============================================================
+            # ETAPA 6. Calentamiento (NO se mide)
+            # Las primeras pasadas son lentas: compilacion de kernels CUDA,
+            # reserva de memoria, caches de disco... Se descartan.
+            # ==============================================================
             for i in range(args.warmup):
                 run_pass()
                 torch.cuda.synchronize()
                 print(f"Warmup {i + 1}/{args.warmup}", flush=True)
+
+            # ==============================================================
+            # ETAPA 7. Pasadas medidas (repeats veces)
+            # Cada repeticion procesa todas las imagenes y produce una fila
+            # de measurements.csv.
+            # ==============================================================
             reference_counts = None
             for i in range(args.repeats):
+                # --- Preparacion (fuera de las ventanas de medicion) ---
                 check_exclusive(handle)
-                torch.cuda.synchronize()
+                torch.cuda.synchronize()  # Nada pendiente en la GPU antes de empezar.
+                # [MEDICION VRAM] >>> reiniciar el pico de memoria para esta pasada
                 torch.cuda.reset_peak_memory_stats()
+
                 # La ventana energetica engloba ligeramente la ventana temporal.
+                # [MEDICION ENERGIA] >>> lectura inicial del contador
                 e0 = nvml.nvmlDeviceGetTotalEnergyConsumption(handle)
+                # [MEDICION TIEMPO] >>> inicio de la pasada completa
                 start = time.perf_counter()
-                counts, latencies = run_pass()
-                torch.cuda.synchronize()
+
+                counts, latencies = run_pass()  # <- lo que se mide
+
+                torch.cuda.synchronize()  # Esperar a que la GPU termine de verdad.
                 elapsed = time.perf_counter() - start
+                # [MEDICION TIEMPO] <<< fin de la pasada completa
                 e1 = nvml.nvmlDeviceGetTotalEnergyConsumption(handle)
+                # [MEDICION ENERGIA] <<< lectura final del contador
+
+                # --- Validaciones (fuera de las ventanas de medicion) ---
+                # Si otro proceso aparecio durante la pasada, la energia no es solo nuestra.
                 check_exclusive(handle)
                 if e1 <= e0:
                     raise RuntimeError("El contador de energia no avanzo: medicion invalida")
+                # Las detecciones deberian ser identicas en todas las repeticiones.
                 if reference_counts is None:
                     reference_counts = counts
                 elif counts != reference_counts:
                     print("Aviso: cambiaron los recuentos de detecciones", flush=True)
-                joules = (e1 - e0) / 1000
+
+                # --- Calculo de metricas de esta repeticion ---
+                joules = (e1 - e0) / 1000  # NVML da milijulios
+                # [MEDICION VRAM] <<< se lee el pico dentro del diccionario (max_memory_*)
                 rows.append({
                     "repeat": i + 1, "batch_size": args.batch_size,
                     "num_images": len(samples), "total_seconds": elapsed,
@@ -307,15 +421,27 @@ def main():
                 latency_rows.extend({"repeat": i + 1, "batch_index": j,
                                      "batch_size": args.batch_size, "latency_ms": s * 1000}
                                     for j, s in enumerate(latencies))
+                # --- Guardado ---
                 # Escritura e impresion fuera de las ventanas de tiempo y energia.
+                # Se reescriben en cada repeticion: si el proceso muere, no se pierde lo medido.
                 write_csv(args.output / "measurements.csv", rows)
                 write_csv(args.output / "batch_latencies.csv", latency_rows)
                 print(f"{i + 1}/{args.repeats}: {elapsed:.3f}s | "
                       f"{len(samples)/elapsed:.2f} img/s | {joules/len(samples):.3f} J/img", flush=True)
+
+            # ==============================================================
+            # ETAPA 8 (opcional). Pasada extra para guardar predicciones (NO se mide)
+            # Guardar .npz es lento; por eso va aparte y despues de medir.
+            # ==============================================================
             if args.save_predictions:
                 print("Pasada EXTRA de validacion, no medida...", flush=True)
                 run_pass(save=True)
 
+        # ==================================================================
+        # ETAPA 9. Resumen de todas las repeticiones -> summary.json
+        # median_*  = valor tipico de una repeticion (robusto a valores atipicos)
+        # overall_* = total acumulado / total de imagenes (media ponderada)
+        # ==================================================================
         def median(key):
             return float(np.median([r[key] for r in rows]))
         save_json(args.output / "summary.json", {
@@ -332,6 +458,11 @@ def main():
             "detections_per_image": reference_counts,
         })
         print(f"Completado: {args.output.resolve()}", flush=True)
+
+    # ======================================================================
+    # Gestion de errores: siempre queda constancia en status.json
+    # ======================================================================
+    # OOM = este batch size no cabe en la GPU. Es un resultado valido, no un fallo.
     except torch.OutOfMemoryError as exc:
         save_json(args.output / "status.json", {"status": "oom", "batch_size": args.batch_size, "error": str(exc)})
         print("OOM registrado. Esta configuracion no cabe; no se reduce el batch automaticamente.", flush=True)
