@@ -37,7 +37,7 @@ def arguments():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--manifest", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--batch-size", type=int, choices=[1, 8, 16, 32], required=True)
+    p.add_argument("--batch-size", type=int, choices=[1, 4, 8, 16, 32], required=True)
     p.add_argument("--prompt", default="fish")
     p.add_argument("--warmup", type=int, default=5, help="Pasadas completas no medidas")
     p.add_argument("--repeats", type=int, default=30)
