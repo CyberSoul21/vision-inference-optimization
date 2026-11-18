@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "batch_size": 1,
+  "num_images_per_pass": 5,
+  "measured_passes": 2,
+  "median_pass_seconds": 1.2701072364870925,
+  "overall_images_per_second": 3.9366754683086262,
+  "median_gpu_j_per_image": 31.4373,
+  "overall_gpu_j_per_image": 31.4373,
+  "median_batch_latency_ms": 253.6810415040236,
+  "p95_batch_latency_ms": 256.416240852559,
+  "max_peak_allocated_gib": 4.9803900718688965,
+  "max_peak_reserved_gib": 5.21484375,
+  "detections_per_image": [
+    6,
+    0,
+    5,
+    3,
+    1
+  ]
+}
