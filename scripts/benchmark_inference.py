@@ -1,4 +1,4 @@
-"""Benchmark end-to-end de SAM 3, con batch size 1."""
+"""End-to-end benchmark of SAM 3 with batch size 1."""
 
 import argparse
 import csv
@@ -25,8 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 GIB = 1024 ** 3
 
 
-# Conservamos la adaptación usada en las pruebas anteriores.
-# Evita que addmm_act convierta explícitamente las activaciones a BF16.
+# Keep the adaptation used in previous tests.
+# Prevent addmm_act from explicitly casting activations to BF16.
 def linear_activation_fp32(activation, linear, x):
     return activation()(linear(x))
 
@@ -35,7 +35,7 @@ vitdet.addmm_act = linear_activation_fp32
 
 
 def save_json(path, content):
-    """Guardar informes se hace fuera del intervalo medido."""
+    """Saving reports happens outside the measured interval."""
     path.write_text(
         json.dumps(content, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -43,7 +43,7 @@ def save_json(path, content):
 
 
 def git_info(directory):
-    """Registrar el commit y si hay cambios locales, cuando existe Git."""
+    """Record the commit and whether there are local changes, when Git is available."""
     try:
         commit = subprocess.check_output(
             ["git", "-C", str(directory), "rev-parse", "HEAD"],
@@ -61,28 +61,28 @@ def git_info(directory):
 
 
 def run_images(processor, image_paths, prompt):
-    """Una pasada secuencial: cada llamada procesa una imagen."""
+    """One sequential pass: each call processes one image."""
     detection_counts = []
 
     for image_path in image_paths:
-        # La lectura, decodificación y conversión a RGB están incluidas.
+        # Reading, decoding and RGB conversion are included.
         with Image.open(image_path) as source:
             image = source.convert("RGB")
 
-        # Incluye preparación de entrada y codificador visual.
-        # Creamos un estado nuevo: no reutilizamos características
-        # calculadas para la misma imagen en una repetición anterior.
+        # Includes input preparation and the vision encoder.
+        # Create a fresh state: do not reuse features
+        # computed for the same image in a previous repeat.
         state = processor.set_image(image)
 
-        # Incluye procesamiento del prompt, detección y máscaras.
+        # Includes prompt processing, detection and masks.
         result = processor.set_text_prompt(
             state=state,
             prompt=prompt,
         )
 
-        # El resultado final de este benchmark debe estar en CPU.
-        # Estas copias forman parte del tiempo end-to-end.
-        # No convertimos a NumPy ni guardamos imágenes o máscaras.
+        # The final result of this benchmark must be on the CPU.
+        # These copies are part of the end-to-end time.
+        # We do not convert to NumPy or save images or masks.
         cpu_result = {
             key: result[key].detach().cpu()
             for key in ("masks", "boxes", "scores")
@@ -90,8 +90,8 @@ def run_images(processor, image_paths, prompt):
 
         detection_counts.append(int(cpu_result["scores"].numel()))
 
-        # Liberamos las referencias de esta imagen antes de la siguiente.
-        # No acumulamos predicciones de todo el conjunto en GPU o RAM.
+        # Release this image's references before the next one.
+        # Do not accumulate predictions for the whole set in GPU or RAM.
         del cpu_result, result, state, image
 
     return detection_counts
@@ -110,15 +110,15 @@ def main():
         parser.error("--warmup debe ser >= 0 y --repeats >= 1")
 
     if not torch.cuda.is_available():
-        raise RuntimeError("Este benchmark requiere CUDA.")
+        raise RuntimeError("This benchmark requires CUDA.")
 
-    # Validamos las rutas antes de cargar el modelo.
+    # Validate paths before loading the model.
     manifest_path = args.manifest.resolve()
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     samples = manifest["samples"]
 
     if not samples:
-        raise ValueError("El manifiesto no contiene imágenes.")
+        raise ValueError("The manifest contains no images.")
 
     image_paths = [
         manifest_path.parent / sample["image"]
@@ -128,12 +128,12 @@ def main():
         if not path.is_file():
             raise FileNotFoundError(path)
 
-    # Evitamos sobrescribir una ejecución anterior.
+    # Avoid overwriting a previous run.
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     save_json(output / "manifest.json", manifest)
 
-    # Inicialización y carga: se registran por separado.
+    # Initialization and loading: recorded separately.
     torch.cuda.synchronize()
     start = time.perf_counter()
     model = build_sam3_image_model()
@@ -174,25 +174,25 @@ def main():
     save_json(output / "configuration.json", configuration)
 
     print(f"GPU: {gpu.name}", flush=True)
-    print(f"Imágenes por pasada: {len(image_paths)}", flush=True)
-    print(f"Carga y preparación: {setup_seconds:.2f} s", flush=True)
+    print(f"Images per pass: {len(image_paths)}", flush=True)
+    print(f"Loading and setup: {setup_seconds:.2f} s", flush=True)
 
     rows = []
 
-    # Desactiva autograd durante calentamiento y mediciones.
+    # Disable autograd during warmup and measurements.
     with torch.inference_mode():
-        # El calentamiento recorre el conjunto completo.
-        # Inicializa rutas de ejecución y calienta las cachés.
+        # Warmup goes through the full set.
+        # Initializes execution paths and warms up caches.
         for index in range(args.warmup):
             run_images(processor, image_paths, args.prompt)
             torch.cuda.synchronize()
             print(
-                f"Calentamiento {index + 1}/{args.warmup}",
+                f"Warmup {index + 1}/{args.warmup}",
                 flush=True,
             )
 
-        # CSV incremental: conserva las repeticiones ya terminadas
-        # si una ejecución posterior falla.
+        # Incremental CSV: keeps already completed repeats
+        # if a later run fails.
         fields = [
             "repeat",
             "num_images",
@@ -210,11 +210,11 @@ def main():
             writer.writeheader()
 
             for index in range(args.repeats):
-                # Esperamos el trabajo anterior antes de iniciar el reloj.
+                # Wait for previous work before starting the clock.
                 torch.cuda.synchronize()
 
-                # El pico incluye pesos y tensores vivos del proceso.
-                # Reiniciar estadísticas no libera memoria.
+                # The peak includes weights and live tensors of the process.
+                # Resetting statistics does not free memory.
                 torch.cuda.reset_peak_memory_stats()
 
                 start = time.perf_counter()
@@ -222,7 +222,7 @@ def main():
                     processor, image_paths, args.prompt
                 )
 
-                # CUDA es asíncrona: esperamos antes de parar el reloj.
+                # CUDA is asynchronous: wait before stopping the clock.
                 torch.cuda.synchronize()
                 elapsed = time.perf_counter() - start
 
@@ -246,12 +246,12 @@ def main():
                 writer.writerow(row)
                 file.flush()
 
-                # Imprimir queda fuera del intervalo medido.
+                # Printing stays outside the measured interval.
                 print(
-                    f"Repetición {index + 1}/{args.repeats}: "
+                    f"Repeat {index + 1}/{args.repeats}: "
                     f"{elapsed:.3f} s | "
-                    f"{row['images_per_second']:.2f} imágenes/s | "
-                    f"pico: {row['peak_allocated_gib']:.2f} GiB",
+                    f"{row['images_per_second']:.2f} images/s | "
+                    f"peak: {row['peak_allocated_gib']:.2f} GiB",
                     flush=True,
                 )
 
@@ -278,9 +278,9 @@ def main():
     }
     save_json(output / "summary.json", summary)
 
-    print("\nResumen:", flush=True)
+    print("\nSummary:", flush=True)
     print(json.dumps(summary, indent=2))
-    print(f"\nInformes: {output}")
+    print(f"\nReports: {output}")
 
 
 if __name__ == "__main__":

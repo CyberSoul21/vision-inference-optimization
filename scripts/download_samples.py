@@ -29,7 +29,7 @@ def main():
     args = parser.parse_args()
 
     if args.count < 1:
-        parser.error("--count debe ser mayor que cero")
+        parser.error("--count must be greater than zero")
 
     # Resolve the requested revision to an immutable dataset commit.
     revision = HfApi().dataset_info(
@@ -43,14 +43,14 @@ def main():
 
     if output.exists():
         raise FileExistsError(
-            f"El directorio ya existe: {output}\n"
-            "No se sobrescribirá. Revisa su manifest.json antes de repetir."
+            f"Directory already exists: {output}\n"
+            "It will not be overwritten. Check its manifest.json before retrying."
         )
 
     output.mkdir(parents=True)
     print(f"Dataset: {DATASET_ID}", flush=True)
     print(f"Revision: {revision}", flush=True)
-    print(f"Salida: {output}", flush=True)
+    print(f"Output: {output}", flush=True)
 
     dataset = load_dataset(
         DATASET_ID,
@@ -67,8 +67,8 @@ def main():
                 sample = next(iterator)
             except StopIteration:
                 raise RuntimeError(
-                    f"Solo se encontraron {index} muestras; "
-                    f"se solicitaron {args.count}."
+                    f"Only {index} samples were found; "
+                    f"{args.count} were requested."
                 ) from None
 
             image = sample["image"].convert("RGB")
@@ -77,8 +77,8 @@ def main():
 
             if label.shape != (height, width):
                 raise ValueError(
-                    f"Muestra {index}: etiqueta {label.shape} "
-                    f"incompatible con imagen {image.size}"
+                    f"Sample {index}: label {label.shape} "
+                    f"incompatible with image {image.size}"
                 )
 
             sample_id = f"coralscapes_{args.split}_{index:04d}"
@@ -127,7 +127,7 @@ def main():
         gc.collect()
 
     print(
-        f"\nDescarga completada. Manifiesto: {output / 'manifest.json'}",
+        f"\nDownload complete. Manifest: {output / 'manifest.json'}",
         flush=True,
     )
 

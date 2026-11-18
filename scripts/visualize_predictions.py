@@ -33,7 +33,7 @@ def main():
 
     width, height = image.size
     if masks.shape != (len(scores), height, width):
-        raise ValueError(f"Dimensiones inesperadas: {masks.shape}")
+        raise ValueError(f"Unexpected dimensions: {masks.shape}")
 
     original = np.asarray(image)
     overlay = original.astype(np.float32).copy()
@@ -46,10 +46,10 @@ def main():
     ):
         ys, xs = np.nonzero(mask)
         if len(xs) == 0:
-            print(f"Detección {index}: máscara vacía; omitida")
+            print(f"Detection {index}: empty mask; skipped")
             continue
 
-        # Caja calculada directamente desde la máscara.
+        # Box computed directly from the mask.
         box = (
             int(xs.min()),
             int(ys.min()),
@@ -86,7 +86,7 @@ def main():
             fill=rgb,
         )
 
-        # Recorte con contexto y máscara aislada con transparencia.
+        # Crop with context and isolated mask with transparency.
         padding = 30
         crop_box = (
             max(0, x0 - padding),
@@ -111,10 +111,10 @@ def main():
         cutout.putalpha(Image.fromarray(mask.astype(np.uint8) * 255))
         cutout.crop(crop_box).save(OUTPUT / f"{prefix}_cutout.png")
 
-        print(f"#{index}: score={score:.3f}, caja={box}")
+        print(f"#{index}: score={score:.3f}, box={box}")
 
     annotated.save(OUTPUT / "detections_numbered.png")
-    print(f"\nResultados guardados en: {OUTPUT}")
+    print(f"\nResults saved to: {OUTPUT}")
 
 
 if __name__ == "__main__":

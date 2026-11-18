@@ -11,7 +11,7 @@ import sam3.model.vitdet as vitdet
 
 
 def linear_activation_fp32(activation, linear, x):
-    """Ruta convencional para evitar la conversión forzada a BF16."""
+    """Conventional path to avoid the forced BF16 conversion."""
     return activation()(linear(x))
 
 
@@ -21,7 +21,7 @@ def report(stage):
     torch.cuda.synchronize()
     free, total = torch.cuda.mem_get_info()
     print(
-        f"{stage} | VRAM libre: {free / 1024**3:.2f} GiB",
+        f"{stage} | free VRAM: {free / 1024**3:.2f} GiB",
         flush=True,
     )
 
@@ -35,41 +35,41 @@ def main():
     with Image.open(image_path) as source:
         image = source.convert("RGB")
 
-    report("1. Cargando modelo")
+    report("1. Loading model")
     model = build_sam3_image_model()
     model.eval()
     processor = Sam3Processor(model)
 
     with torch.inference_mode():
-        report("2. Procesando imagen")
+        report("2. Processing image")
         state = processor.set_image(image)
 
-        # Libera bloques de caché que ya no están en uso.
+        # Release cached blocks that are no longer in use.
         torch.cuda.empty_cache()
 
-        report("3. Aplicando prompt: fish")
+        report("3. Applying prompt: fish")
         result = processor.set_text_prompt(
             state=state,
             prompt="fish",
         )
 
-        report("4. Copiando resultados a CPU")
+        report("4. Copying results to CPU")
         masks = result["masks"].detach().cpu().numpy()
         scores = result["scores"].detach().float().cpu().numpy()
         boxes = result["boxes"].detach().float().cpu().numpy()
 
-    # Normaliza las máscaras a [N, H, W].
+    # Normalize masks to [N, H, W].
     if masks.ndim == 4 and masks.shape[1] == 1:
         masks = masks[:, 0]
 
     if masks.ndim != 3:
-        raise ValueError(f"Forma de máscaras inesperada: {masks.shape}")
+        raise ValueError(f"Unexpected mask shape: {masks.shape}")
 
     masks = masks > 0.5
     count = len(masks)
 
-    print(f"Objetos detectados: {count}", flush=True)
-    print(f"Puntuaciones: {scores.tolist()}", flush=True)
+    print(f"Detected objects: {count}", flush=True)
+    print(f"Scores: {scores.tolist()}", flush=True)
 
     np.savez_compressed(
         output_dir / "predictions.npz",
@@ -78,13 +78,13 @@ def main():
         boxes=boxes,
     )
 
-    # Colores reproducibles para distinguir las instancias.
+    # Reproducible colors to distinguish instances.
     overlay = np.asarray(image).astype(np.float32).copy()
     rng = np.random.default_rng(42)
 
     for mask in masks:
         if mask.shape != overlay.shape[:2]:
-            raise ValueError("La máscara no coincide con la imagen original")
+            raise ValueError("Mask does not match the original image")
         color = rng.integers(40, 256, size=3)
         overlay[mask] = 0.55 * overlay[mask] + 0.45 * color
 
@@ -106,7 +106,7 @@ def main():
         json.dumps(summary, indent=2),
         encoding="utf-8",
     )
-    print(f"Superposición guardada: {overlay_path}", flush=True)
+    print(f"Overlay saved: {overlay_path}", flush=True)
 
 
 if __name__ == "__main__":
@@ -114,8 +114,8 @@ if __name__ == "__main__":
         main()
     except torch.OutOfMemoryError:
         print(
-            "\nMemoria insuficiente en esta prueba FP32. "
-            "Guarda la última etapa mostrada y el error completo.",
+            "\nOut of memory in this FP32 test. "
+            "Save the last stage shown and the full error.",
             flush=True,
         )
         raise

@@ -41,7 +41,7 @@ def save_predictions(image, result, output):
 
     width, height = image.size
     if masks.shape != (len(scores), height, width):
-        raise ValueError(f"Dimensiones de máscaras inesperadas: {masks.shape}")
+        raise ValueError(f"Unexpected mask dimensions: {masks.shape}")
 
     masks = masks > 0.5
     np.savez_compressed(
@@ -81,8 +81,8 @@ def main():
 
     if args.output.exists():
         raise FileExistsError(
-            f"La salida ya existe: {args.output}. "
-            "Elige otra carpeta para conservar los resultados anteriores."
+            f"Output already exists: {args.output}. "
+            "Choose another folder to keep the previous results."
         )
 
     # Check all input images before loading the model.
@@ -92,12 +92,12 @@ def main():
             raise FileNotFoundError(path)
 
     if not torch.cuda.is_available():
-        raise RuntimeError("Esta prueba requiere CUDA.")
+        raise RuntimeError("This test requires CUDA.")
 
     args.output.mkdir(parents=True)
     save_json(args.output / "manifest.json", manifest)
 
-    print("Cargando SAM 3 una sola vez...", flush=True)
+    print("Loading SAM 3 once...", flush=True)
     model = build_sam3_image_model()
     model.eval()
     processor = Sam3Processor(model)
@@ -143,7 +143,7 @@ def main():
             summaries.append(summary)
 
             print(
-                f"  Detecciones: {summary['num_detections']}",
+                f"  Detections: {summary['num_detections']}",
                 flush=True,
             )
 
@@ -151,7 +151,7 @@ def main():
             del result, state
 
     save_json(args.output / "summary.json", summaries)
-    print(f"\nResultados guardados en: {args.output.resolve()}")
+    print(f"\nResults saved to: {args.output.resolve()}")
 
 
 if __name__ == "__main__":
